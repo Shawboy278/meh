@@ -1,0 +1,5 @@
+<Project>
+    <PropertyGroup>
+        <DotNetTargetFx>net9.0</DotNetTargetFx>
+    </PropertyGroup>
+</Project>

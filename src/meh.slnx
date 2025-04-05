@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/.solution_files/">
+    <File Path="../.gitignore" />
+    <File Path="../README.md" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Build.targets" />
+    <File Path="Directory.Packages.props" />
+  </Folder>
+  <Project Path="Meh.Contracts/Meh.Contracts.csproj" />
+  <Project Path="Meh/Meh.csproj" />
+</Solution>
