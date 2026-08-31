@@ -1,3 +1,6 @@
 # msbuild related
 **/bin
 **/obj
+
+# IDE erelated
+**/.idea

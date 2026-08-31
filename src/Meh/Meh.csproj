@@ -1,14 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <ItemGroup>
+    <ProjectReference Include="..\Commands\Contracts\Meh.Commands.Contracts.csproj" />
+    <ProjectReference Include="..\Plugins\Contracts\Meh.Plugins.Contracts.csproj" />
+  </ItemGroup>
+
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>$(DotNetTargetFx)</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Meh.Contracts\Meh.Contracts.csproj" />
-  </ItemGroup>
 
 </Project>

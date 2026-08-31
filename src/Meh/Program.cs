@@ -3,7 +3,7 @@
 /// <summary>
 ///   Contains the entry method for the app.
 /// </summary>
-public static class MehMain
+public static class Program
 {
     /// <summary>
     ///   The initial point of execution for the app.

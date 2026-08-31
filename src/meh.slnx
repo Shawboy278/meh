@@ -1,6 +1,7 @@
 <Solution>
   <Folder Name="/.repos_files/">
     <File Path="../README.md" />
+    <File Path="../AGENTS.md" />
   </Folder>
   <Folder Name="/.solution_files/">
     <File Path="../.gitignore" />
@@ -8,6 +9,19 @@
     <File Path="Directory.Build.targets" />
     <File Path="Directory.Packages.props" />
   </Folder>
-  <Project Path="Meh.Contracts/Meh.Contracts.csproj" />
-  <Project Path="Meh/Meh.csproj" />
+  <Folder Name="/Commands/" />
+  <Folder Name="/Commands/Git/">
+    <Project Path="Commands/Git/Meh.Commands.Git.csproj" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="Meh.Tests/Meh.Tests.csproj" />
+    <Project Path="Meh/Meh.csproj" />
+  </Folder>
+  <Folder Name="/src/Commands/">
+    <Project Path="Commands/Contracts/Meh.Commands.Contracts.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/" />
+  <Folder Name="/src/Plugins/">
+    <Project Path="Plugins/Contracts/Meh.Plugins.Contracts.csproj" />
+  </Folder>
 </Solution>
