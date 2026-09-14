@@ -4,11 +4,10 @@
         <TargetFramework>$(DotNetTargetFx)</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <RootNamespace>Contracts</RootNamespace>
     </PropertyGroup>
-
+    
     <ItemGroup>
-      <Folder Include="src\" />
+        <PackageReference Include="System.CommandLine" />
     </ItemGroup>
 
 </Project>

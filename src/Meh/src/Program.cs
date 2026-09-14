@@ -9,9 +9,13 @@ public static class Program
     ///   The initial point of execution for the app.
     /// </summary>
     /// <param name="args">The command line arguments.</param>
-    public static void Main(
+    public static async Task<int> Main(
         string[] args)
-    {
-        // TODO: Pull in modules
+    {   
+        var serviceProvider = ServiceProviderFactory.Create();
+        var rootCommand = serviceProvider.GetRequiredService<RootCommand>();
+
+        return await rootCommand.Parse(args)
+            .InvokeAsync();
     }
 }

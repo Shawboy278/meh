@@ -1,0 +1,6 @@
+root = true
+
+[*.cs]
+# Namespaces are flat per project: folders do not contribute namespace segments.
+# Mirrors FoldersProvideNamespacesByDefault in meh.slnx.DotSettings.
+dotnet_style_namespace_match_folder = false
