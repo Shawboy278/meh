@@ -1,13 +1,24 @@
 <Solution>
   <Folder Name="/.repos_files/">
-    <File Path="../README.md" />
+    <File Path="..\.editorconfig" />
+    <File Path="..\.gitignore" />
+    <File Path="..\AGENTS.md" />
+    <File Path="..\README.md" />
+  </Folder>
+  <Folder Name="/.rider_files/">
+    <File Path="meh.slnx.DotSettings" />
   </Folder>
   <Folder Name="/.solution_files/">
-    <File Path="../.gitignore" />
     <File Path="Directory.Build.props" />
     <File Path="Directory.Build.targets" />
     <File Path="Directory.Packages.props" />
   </Folder>
-  <Project Path="Meh.Contracts/Meh.Contracts.csproj" />
-  <Project Path="Meh/Meh.csproj" />
+  <Folder Name="/src/">
+    <Project Path="Meh.Tests/Meh.Tests.csproj" />
+    <Project Path="Meh/Meh.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/">
+    <Project Path="Modules/Git/Meh.Modules.Git.csproj" />
+    <Project Path="Modules\Core\Meh.Modules.Core.csproj" />
+  </Folder>
 </Solution>

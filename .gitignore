@@ -1,3 +1,9 @@
 # msbuild related
 **/bin
 **/obj
+
+# OS related
+**/.DS_Store
+
+# IDE related
+**/.idea
