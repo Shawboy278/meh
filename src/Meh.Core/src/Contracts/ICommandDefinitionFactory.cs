@@ -1,4 +1,4 @@
-namespace  Meh.Modules.Core;
+namespace  Meh.Core;
 
 /// <summary>
 ///   Abstraction for a factory that creates <see cref="ICommandDefinition"/>

@@ -1,4 +1,4 @@
-namespace Meh.Modules.Core;
+namespace Meh.Core;
 
 /// <summary>
 ///   Represents a command.
