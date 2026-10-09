@@ -1,0 +1,48 @@
+name: Publish
+
+# Publishes to nuget.org when a version tag is pushed, e.g. v0.1.0 or v0.2.0-beta.1
+on:
+  push:
+    tags: [ 'v*' ]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: nuget
+    permissions:
+      contents: read
+      id-token: write # required for NuGet trusted publishing (OIDC)
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Determine version from tag
+        id: version
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          prefix="${version%%-*}"
+          suffix=""
+          if [[ "$version" == *-* ]]; then suffix="${version#*-}"; fi
+          echo "prefix=$prefix" >> "$GITHUB_OUTPUT"
+          echo "suffix=$suffix" >> "$GITHUB_OUTPUT"
+          echo "Publishing version $version"
+
+      - name: Build and test
+        run: |
+          dotnet build src/meh.slnx -c Release -p:VersionPrefix=${{ steps.version.outputs.prefix }} -p:VersionSuffix=${{ steps.version.outputs.suffix }}
+          dotnet test src/meh.slnx -c Release --no-build
+
+      - name: Pack
+        run: dotnet pack src/meh.slnx -c Release --no-build -o artifacts -p:VersionPrefix=${{ steps.version.outputs.prefix }} -p:VersionSuffix=${{ steps.version.outputs.suffix }}
+
+      - name: NuGet login (OIDC)
+        id: login
+        uses: NuGet/login@v1
+        with:
+          user: ${{ secrets.NUGET_USER }}
+
+      - name: Push to nuget.org
+        run: dotnet nuget push "artifacts/*.nupkg" --api-key ${{ steps.login.outputs.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate

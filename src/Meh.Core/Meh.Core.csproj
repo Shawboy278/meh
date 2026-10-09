@@ -5,6 +5,13 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
+
+    <PropertyGroup>
+        <IsPackable>true</IsPackable>
+        <PackageId>Shawboy278.Meh.Core</PackageId>
+        <Description>Core abstractions for building command modules for meh (My Extendable Hack).</Description>
+        <PackageTags>meh;cli;system-commandline;modules</PackageTags>
+    </PropertyGroup>
     
     <ItemGroup>
         <PackageReference Include="System.CommandLine" />

@@ -3,7 +3,7 @@ namespace Meh.Commands.Git;
 using static Meh.Commands.Git.CommonGitOptions;
 
 /// <summary>
-///   Creates new <see cref="FixMoveDefinition" /> instances.
+///     Creates new <see cref="FixMoveDefinition" /> instances.
 /// </summary>
 internal sealed class FixMoveDefinitionFactory
     : ICommandDefinitionFactory<FixMoveDefinition>

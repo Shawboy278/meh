@@ -7,8 +7,17 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>meh</ToolCommandName>
+    <PackageId>Shawboy278.Meh</PackageId>
+    <Description>My Extendable Hack (meh): an extendable command-line utility to help automate workflows.</Description>
+    <PackageTags>cli;dotnet-tool;git;automation</PackageTags>
+  </PropertyGroup>
+
   <ItemGroup>
-    <ProjectReference Include="..\Modules\Core\Meh.Modules.Core.csproj" />
+    <ProjectReference Include="..\Meh.Core\Meh.Core.csproj" />
     <ProjectReference Include="..\Modules\Git\Meh.Modules.Git.csproj" />
   </ItemGroup>
   

@@ -1,27 +1,22 @@
 namespace Meh.Modules.Git;
 
+/// <summary>
+///     Contains extension methods for the <see cref="Repository"/> class.
+/// </summary>
 public static class RepositoryExtensions
 {
-    // /// <summary>
-    // /// List of indexed files missing from the working directory.
-    // /// </summary>
-    // /// <param name="repos">The reposittory.</param>
-    // /// <returns>The missing files.</returns>
-    // /// <exception cref="ArgumentNullException">The repos value is null.</exception>
-    // public static IEnumerable<string> GetMissingFiles(
-    //     this Repository repos)
-    //     => repos?.RetrieveStatus()
-    //         .Missing
-    //         .Select(se => se.FilePath)
-    //         .ToArray()
-    //         ?? throw new ArgumentNullException(nameof(repos));
-
     /// <summary>
-    /// List of files in the working directory that are not indexed.
+    ///     List of files in the working directory that are not indexed.
     /// </summary>
-    /// <param name="repos">The repository.</param>
-    /// <returns>The untracked files.</returns>
-    /// <exception cref="ArgumentNullException">The repos value is null.</exception>
+    /// <param name="repos">
+    ///     The repository.
+    /// </param>
+    /// <returns>
+    ///     The untracked files.
+    /// </returns>
+    /// <exception cref="ArgumentNullException">
+    ///     The repos value is null.
+    /// </exception>
     public static IReadOnlyCollection<string> GetUntrackFiles(
             this Repository repos)
         => repos?.RetrieveStatus()
@@ -31,23 +26,37 @@ public static class RepositoryExtensions
             ?? throw new ArgumentNullException(nameof(repos));
 
     /// <summary>
-    /// Indicates if the file is tracked or not.
+    ///     Indicates if the file is tracked or not.
     /// </summary>
-    /// <param name="repos">The repository.</param>
-    /// <param name="file">The file in question.</param>
-    /// <returns>True if the file is tracked, false otherwise.</returns>
+    /// <param name="repos">
+    ///     The repository.
+    /// </param>
+    /// <param name="file">
+    ///     The file in question.
+    /// </param>
+    /// <returns>
+    ///     True if the file is tracked, false otherwise.
+    /// </returns>
     public static bool IsFileTracked(
             this Repository repos,
             string file)
         => repos.Head.Tip.Tree[file] != null;
 
     /// <summary>
-    /// Restores a tracked file.
+    ///     Restores a tracked file.
     /// </summary>
-    /// <param name="repos">The repository.</param>
-    /// <param name="file">The file to restore.</param>
-    /// <returns>The repository.</returns>
-    /// <exception cref="FileNotFoundException">The file was not tracked.</exception>
+    /// <param name="repos">
+    ///     The repository.
+    /// </param>
+    /// <param name="file">
+    ///     The file to restore.
+    /// </param>
+    /// <returns>
+    ///     The repository.
+    /// </returns>
+    /// <exception cref="FileNotFoundException">
+    ///     The file was not tracked.
+    /// </exception>
     public static Repository RestoreFile(
         this Repository repos,
         string file)
@@ -65,12 +74,13 @@ public static class RepositoryExtensions
     }
 
     /// <summary>
-    /// 
+    ///     List of files in the working directory that are tracked and deleted.
     /// </summary>
     /// <param name="repos">
-    ///   The repository.
+    ///     The repository.
     /// </param>
     /// <returns>
+    ///     The deleted files.
     /// </returns>
     public static IReadOnlyCollection<string> GetTrackedDeletedFiles(
         this Repository repos)
