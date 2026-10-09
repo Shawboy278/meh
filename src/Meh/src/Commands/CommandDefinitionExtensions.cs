@@ -1,11 +1,19 @@
-namespace Meh.Modules.Core;
+namespace Meh.Commands;
 
 /// <summary>
-/// 
+///     Extension methods for <see cref="ICommandDefinition" />.
 /// </summary>
 public static class CommandDefinitionExtensions
 {
-    //
+    /// <summary>
+    ///     Converts a <see cref="ICommandDefinition" /> to a <see cref="Command" />.
+    /// </summary>
+    /// <param name="definition">
+    ///     The command definition.
+    /// </param>
+    /// <returns>
+    ///     The converted command.
+    /// </returns>
     public static Command ToCommand(
         this ICommandDefinition definition)
     {

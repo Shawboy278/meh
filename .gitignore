@@ -7,3 +7,6 @@
 
 # IDE related
 **/.idea
+
+# build output
+**/artifacts

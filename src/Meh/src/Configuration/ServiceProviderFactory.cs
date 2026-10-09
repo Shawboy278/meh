@@ -1,14 +1,14 @@
-using Meh;
+namespace Meh;
 
 /// <summary>
-///   Builds the application's <see cref="IServiceProvider"/>.
+///     Builds the application's <see cref="IServiceProvider"/>.
 /// </summary>
 internal static class ServiceProviderFactory
 {
     private static readonly Type CommandDefinitionType = typeof(ICommandDefinition);
     
     /// <summary>
-    ///   Creates a configured <see cref="IServiceProvider"/> for the application.
+    ///     Creates a configured <see cref="IServiceProvider"/> for the application.
     /// </summary>
     public static IServiceProvider Create()
     {

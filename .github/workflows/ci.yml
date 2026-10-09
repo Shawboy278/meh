@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Restore
+        run: dotnet restore src/meh.slnx
+
+      - name: Build
+        run: dotnet build src/meh.slnx -c Release --no-restore
+
+      - name: Test
+        run: dotnet test src/meh.slnx -c Release --no-build
+
+      - name: Pack
+        run: dotnet pack src/meh.slnx -c Release --no-build -o artifacts -p:VersionSuffix=ci.${{ github.run_number }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: packages
+          path: artifacts/

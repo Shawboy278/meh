@@ -1,7 +1,7 @@
 namespace Meh.Commands.Git;
 
 /// <summary>
-///   The root command for Git actions.
+///     The root command for Git actions.
 /// </summary>
 public sealed class GitDefinition
     : ICommandDefinition

@@ -3,7 +3,12 @@
     <File Path="..\.editorconfig" />
     <File Path="..\.gitignore" />
     <File Path="..\AGENTS.md" />
+    <File Path="..\LICENSE" />
     <File Path="..\README.md" />
+  </Folder>
+  <Folder Name="/.github/">
+    <File Path="..\.github\workflows\ci.yml" />
+    <File Path="..\.github\workflows\publish.yml" />
   </Folder>
   <Folder Name="/.rider_files/">
     <File Path="meh.slnx.DotSettings" />
@@ -14,11 +19,11 @@
     <File Path="Directory.Packages.props" />
   </Folder>
   <Folder Name="/src/">
+    <Project Path="Meh.Core/Meh.Core.csproj" />
     <Project Path="Meh.Tests/Meh.Tests.csproj" />
     <Project Path="Meh/Meh.csproj" />
   </Folder>
   <Folder Name="/src/Modules/">
     <Project Path="Modules/Git/Meh.Modules.Git.csproj" />
-    <Project Path="Modules\Core\Meh.Modules.Core.csproj" />
   </Folder>
 </Solution>

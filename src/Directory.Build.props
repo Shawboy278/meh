@@ -10,4 +10,27 @@
         <AssemblyVersion>$(VersionPrefix).0</AssemblyVersion>
         <FileVersion>$(VersionPrefix).0</FileVersion>
     </PropertyGroup>
+
+    <!-- NuGet package metadata shared by all packable projects. Projects opt in with IsPackable=true. -->
+    <PropertyGroup>
+        <IsPackable>false</IsPackable>
+        <Authors>Jason Shaw</Authors>
+        <Copyright>Copyright (c) 2026 Jason Shaw</Copyright>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/Shawboy278/meh</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/Shawboy278/meh</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+
+    <!-- Reproducible builds when running in GitHub Actions. -->
+    <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    </PropertyGroup>
+
+    <ItemGroup Condition="'$(IsPackable)' == 'true'">
+        <None Include="$(MSBuildThisFileDirectory)..\README.md" Pack="true" PackagePath="\" Visible="false" />
+    </ItemGroup>
 </Project>

@@ -1,7 +1,7 @@
 namespace Meh.Commands;
 
 /// <summary>
-///   Implements the root meh command.
+///     Implements the root meh command.
 /// </summary>
 internal sealed class MehCommandFactory(
     IServiceProvider serviceProvider)
@@ -9,9 +9,11 @@ internal sealed class MehCommandFactory(
     private readonly IServiceProvider _serviceProvider = serviceProvider;
     
     /// <summary>
-    ///   Creates a new instance of <see cref="RootCommand"/> configured as the base meh command.
+    ///     Creates a new instance of <see cref="RootCommand"/> configured as the base meh command.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>
+    ///     The root command.
+    /// </returns>
     internal RootCommand Create()
     {
         var commandTypeMapping = _serviceProvider.GetServices<ICommandDefinition>()

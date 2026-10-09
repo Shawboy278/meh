@@ -1,7 +1,7 @@
 namespace Meh.Commands.Git;
 
 /// <summary>
-/// Resolves an untracked file move.
+///     Resolves an untracked file move.
 /// </summary>
 public sealed class FixMoveDefinition(
         Argument<string?> originPathArg,
@@ -29,7 +29,7 @@ public sealed class FixMoveDefinition(
     public Option[] Options { get; } = [ reposPathOption ];
     
     /// <inheritdoc />
-    public Task<int> ExecuteAsync(
+    public Task<int?> ExecuteAsync(
         ParseResult parseResult,
         CancellationToken ct)
     {
@@ -58,7 +58,7 @@ public sealed class FixMoveDefinition(
                 File.Move(maskedTargetFile, targetFile, true);
             }
 
-            return Task.FromResult(0);
+            return Task.FromResult<int?>(0);
         }
         catch (Exception ex)
         {
