@@ -4,7 +4,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <VersionPrefix>0.1.0</VersionPrefix>
+        <VersionPrefix>0.2.0</VersionPrefix>
         <!-- Override at build time: dotnet build -p:VersionSuffix=alpha.1 -->
         <VersionSuffix></VersionSuffix>
         <AssemblyVersion>$(VersionPrefix).0</AssemblyVersion>
