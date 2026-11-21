@@ -53,8 +53,8 @@ public interface ICommandDefinition
     /// <remarks>
     ///   Returning a <c>null</c> triggers the help command.
     /// </remarks>
-    Task<int?> ExecuteAsync(
+    Task<ExitCodes?> ExecuteAsync(
             ParseResult parseResult,
             CancellationToken ct)
-        => Task.FromResult((int?)null);
+        => Task.FromResult((ExitCodes?)null);
 }
