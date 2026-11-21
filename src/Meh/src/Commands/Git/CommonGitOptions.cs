@@ -12,5 +12,8 @@ internal static class CommonGitOptions
         = new(
             "--repository-root",
             "--repos-root",
-            "-r");
+            "-r")
+        {
+            Description = "The repository's root path.",
+        };
 }
