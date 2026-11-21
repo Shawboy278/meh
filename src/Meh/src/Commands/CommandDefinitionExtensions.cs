@@ -40,8 +40,9 @@ public static class CommandDefinitionExtensions
             async (parseResult, ct) =>
             {
                 var result = await definition.ExecuteAsync(parseResult, ct);
-                return result
-                    ?? await command.Parse("--help")
+                return result.HasValue
+                    ? (int)result.Value
+                    : await command.Parse("--help")
                         .InvokeAsync(cancellationToken: ct);
             });
         command.Hidden = definition.IsHidden;

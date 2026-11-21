@@ -9,7 +9,7 @@ public sealed class FixMoveDefinition(
         Option<string> reposPathOption)
     : ICommandDefinition, IHasParentDefinition<GitDefinition>
 {
-    private readonly Argument<string?> _originPathArg = targetPathArg;
+    private readonly Argument<string?> _originPathArg = originPathArg;
     private readonly Argument<string?> _targetPathArg = targetPathArg;
     private readonly Option<string> _reposPathOption = reposPathOption;
     
@@ -20,16 +20,16 @@ public sealed class FixMoveDefinition(
     public string Description => "Corrects file moves performed outside of Git tooling.";
 
     /// <inheritdoc />
-    public string[] Aliases { get; } = [ "fix-move" ];
+    public string[] Aliases => [ "fix-move" ];
     
     /// <inheritdoc />
-    public Argument[] Arguments { get; } = [ originPathArg, targetPathArg ];
+    public Argument[] Arguments => [ _originPathArg, _targetPathArg ];
     
     /// <inheritdoc />
-    public Option[] Options { get; } = [ reposPathOption ];
+    public Option[] Options => [ _reposPathOption ];
     
     /// <inheritdoc />
-    public Task<int?> ExecuteAsync(
+    public Task<ExitCodes?> ExecuteAsync(
         ParseResult parseResult,
         CancellationToken ct)
     {
@@ -58,17 +58,13 @@ public sealed class FixMoveDefinition(
                 File.Move(maskedTargetFile, targetFile, true);
             }
 
-            return Task.FromResult<int?>(0);
+            return Task.FromResult<ExitCodes?>(ExitCodes.Success);
         }
         catch (Exception ex)
         {
             // TODO: Handle better
-            AnsiConsole.WriteLine(ex.Message);
-            if (ex.StackTrace is not null)
-            {
-                AnsiConsole.WriteLine(ex.StackTrace);                
-            }
-            throw;
+            AnsiConsole.WriteException(ex);
+            return Task.FromResult<ExitCodes?>(ExitCodes.Failure);
         }
     }
 
